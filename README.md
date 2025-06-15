@@ -5,3 +5,6 @@ A simple application that transforms a CSV file to JSON, and a JSON array reques
 
 #### The Architecture
 <img src="docs/architecture.png"></img>
+
+#### Note
+There are possibly much efficient and smarter ways to interact with the LLM - such as uploading the CSV file directly via `HumanMessage` from LangChain than what has been implemented so far. We will incrementally update the codebase with such improvisations as I understand more about LangChain and its capabilities. However, the first _POC_ version will be proclaimed complete with the basic implementation (including the Angular application), and will have gradual communication optimizations with the LLM.
