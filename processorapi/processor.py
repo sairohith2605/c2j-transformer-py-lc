@@ -37,10 +37,26 @@ class Processor:
         csv
         """
         data_text = csv_data_bytes.decode()
-        result_text = await self._send_llm_message('csv', 'json', data_text)
+        result_text = await self._send_llm_message(source='csv', target='json', data=data_text)
         if (result_text == 'FORMAT_INVALID'):
             raise ValueError("The provided data for CSV is invalid")
         return json.loads(result_text)
+    
+    async def json_to_csv(self, data: list[dict[str, object]]) -> bytes:
+        """
+        Transforms the source JSON Array to CSV data
+        
+        Args:
+            data (list[dict[str, object]]): A JSON array of data
+        
+        Returns:
+            bytes: The transformed data of the JSON as csv content
+        csv
+        """
+        result_text = await self._send_llm_message(source='json', target='csv', data=json.dumps(data))
+        if (result_text == 'FORMAT_INVALID'):
+            raise ValueError("The provided JSON data is invalid")
+        return result_text.encode()
     
     async def _send_llm_message(self, source: str, target: str, data: str) -> str:
         """
