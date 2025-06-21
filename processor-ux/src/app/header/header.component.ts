@@ -15,6 +15,10 @@ export class HeaderComponent {
     route: '/'
   };
 
+  readonly menuRoutes: RouteDefinition[] = [
+    { label: 'Home', route: '/' }
+  ];
+
 }
 
 export interface RouteDefinition {
