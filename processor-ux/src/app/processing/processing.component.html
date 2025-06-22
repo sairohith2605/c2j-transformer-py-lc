@@ -1,6 +1,26 @@
 <div class="clr-row clr-justify-content-center mt-5 mb-2">
-  <div class="clr-col-sm-8 clr-col-md-8 text-center">
-    <div cds-text="title">CSV - JSON Data Format Transformer</div>
-    <div cds-text="message" class="sub-title">The data format transformer uses Gemini AI to convert data between JSON and CSV</div>
-  </div>
+    <div class="clr-col-sm-8 clr-col-md-8 text-center">
+        <div cds-text="title">CSV - JSON Data Format Transformer</div>
+        <div cds-text="message" class="sub-title">The data format transformer uses Gemini AI to convert data between
+            JSON and CSV</div>
+    </div>
+    <div class="clr-col-sm-10 clr-col-md-10 processing-section">
+        <clr-tabs clrLayout="vertical">
+            <clr-tab>
+                <button clrTabLink>JSON to CSV</button>
+                <clr-tab-content *clrIfActive>
+                    <div class="editor-wrapper">
+                         <ngx-monaco-editor class="editor-container" [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
+                    </div>
+                    <div class="clr-row clr-justify-content-end submit-button">
+                        <button type="button" class="btn btn-primary">Process</button>
+                    </div>            
+                </clr-tab-content>
+            </clr-tab>
+            <clr-tab>
+                <button clrTabLink>CSV to JSON</button>
+                <clr-tab-content *clrIfActive>Content for Management tab.</clr-tab-content>
+            </clr-tab>
+        </clr-tabs>
+    </div>
 </div>
