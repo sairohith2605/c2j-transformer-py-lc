@@ -3,10 +3,12 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),
-    importProvidersFrom(MonacoEditorModule.forRoot())
+    importProvidersFrom(MonacoEditorModule.forRoot()),
+    provideHttpClient(),
   ]
 };
